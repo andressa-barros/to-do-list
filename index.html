@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>to-do-list</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <h1>To-do List</h1>
+    <div class="container">
+      <div class="add-task">
+        <button id="btn-open-modal" type="button">New task</button>
+
+        <form id="task-form">
+          <input
+            type="text"
+            id="task-input"
+            placeholder="Write task name..."
+            required
+          />
+          <button type="submit">New task</button>
+        </form>
+      </div>
+
+      <div class="tasks">
+        <ul id="task-list">
+          <li class="task-item">
+            <span>Task name</span>
+            <div class="actions">
+              <button class="btn-check" type="button">
+                <img src="img/check.svg" alt="check" />
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
