@@ -2,6 +2,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const taskList = document.getElementById("task-list");
   const taskForm = document.getElementById("task-form");
   const taskInput = document.getElementById("task-input");
+  const btnOpenModal = document.getElementById("btn-open-modal");
+  const container = document.querySelector(".container");
+
+  btnOpenModal.addEventListener("click", () => {
+    container.classList.add("modal-active");
+    taskInput.focus();
+  });
 
   taskForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -22,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     taskList.appendChild(li);
     taskInput.value = "";
+    container.classList.remove("modal-active");
   });
 
   taskList.addEventListener("click", (e) => {

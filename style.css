@@ -24,6 +24,7 @@ body {
   align-items: center;
   font-family: "Inter", sans-serif;
   gap: 30px;
+  padding: 20px 15px;
 }
 
 h1 {
@@ -31,19 +32,25 @@ h1 {
   color: var(--rosa-claro);
   font-weight: 700;
   font-size: 100px;
-  margin-bottom: 20px;
+  margin: 40px 0 40px 0;
+  text-align: center;
 }
 
 .container {
   background-color: var(--azul-claro);
-  width: 960px;
-  min-height: 520px;
-  border-radius: 30px;
+  width: 1132px;
+  max-width: 100%;
+  min-height: 598px;
+  border-radius: 20px;
   border: 4px solid var(--verde-claro);
   padding: 50px 60px;
   display: flex;
   flex-direction: column;
   gap: 40px;
+}
+
+#btn-open-modal {
+  display: none;
 }
 
 #task-form {
@@ -54,14 +61,14 @@ h1 {
 }
 
 #task-input {
-  width: 630px;
-  height: 60px;
+  width: 718px;
+  height: 66px;
   border-radius: 20px;
   border: none;
   padding: 0 25px;
   background-color: var(--verde-claro);
-  font-family: inherit;
-  font-size: 26px;
+  font-weight: 300;
+  font-size: 28px;
   color: #ffffff;
   outline: none;
 }
@@ -72,13 +79,13 @@ h1 {
 }
 
 #task-form button {
-  width: 170px;
+  width: 208px;
   height: 60px;
   border-radius: 20px;
   border: none;
   background-color: var(--rosa-claro);
   color: #ffffff;
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 700;
   cursor: pointer;
   transition:
@@ -106,9 +113,9 @@ h1 {
   width: 100%;
   min-height: 80px;
   background-color: var(--rosa-claro);
-  border-radius: 25px;
+  border-radius: 20px;
   color: #ffffff;
-  font-size: 28px;
+  font-size: 36px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -140,7 +147,9 @@ h1 {
   border: 3px solid #000000;
   background-color: var(--verde-claro);
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    filter 0.2s ease;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -150,6 +159,11 @@ h1 {
 .btn-check img {
   width: 30px;
   height: 30px;
+  display: none;
+}
+
+.task-item.completed .btn-check img {
+  display: block;
 }
 
 .btn-check:hover {
@@ -183,8 +197,108 @@ h1 {
 .btn-delete img {
   width: 30px;
   height: 30px;
+  display: block;
 }
 
 .btn-delete:hover {
   filter: brightness(0.85);
+}
+
+/* VERSÃO MOBILE */
+@media (max-width: 768px) {
+  body {
+    padding: 15px 10px;
+    justify-content: flex-start;
+  }
+
+  h1 {
+    font-size: 64px;
+    margin: 40px 0 40px 0;
+  }
+
+  .container {
+    width: 100%;
+    min-height: 650px;
+    padding: 30px 20px;
+    border-radius: 25px;
+    gap: 30px;
+  }
+
+  #btn-open-modal {
+    display: block;
+    width: 100%;
+    height: 60px;
+    background-color: var(--verde-claro);
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 700;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: filter 0.2s ease;
+  }
+
+  #btn-open-modal:hover {
+    filter: brightness(0.95);
+  }
+
+  #task-form {
+    display: none;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .container.modal-active #btn-open-modal {
+    display: none;
+  }
+
+  .container.modal-active .tasks {
+    display: none;
+  }
+
+  .container.modal-active #task-form {
+    display: flex;
+    margin-top: 10px;
+  }
+
+  #task-input {
+    width: 100%;
+    height: 60px;
+    background-color: var(--rosa-claro);
+    border-radius: 20px;
+    font-size: 20px;
+  }
+
+  #task-input::placeholder {
+    color: #ffffff;
+    opacity: 0.95;
+  }
+
+  #task-form button {
+    width: 100%;
+    height: 60px;
+    background-color: var(--verde-claro);
+    font-size: 26px;
+    border-radius: 20px;
+  }
+
+  .task-item {
+    height: auto;
+    min-height: 65px;
+    font-size: 22px;
+    padding: 12px 20px;
+    border-radius: 20px;
+  }
+
+  .btn-check,
+  .btn-delete {
+    width: 50px;
+    height: 50px;
+  }
+
+  .btn-check img,
+  .btn-delete img {
+    width: 26px;
+    height: 26px;
+  }
 }

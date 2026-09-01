@@ -11,18 +11,27 @@
     <h1>To-do List</h1>
     <div class="container">
       <div class="add-task">
+        <button id="btn-open-modal" type="button">New task</button>
+
         <form id="task-form">
-          <input type="text" id="task-input" placeholder="New task" required />
-          <button type="submit">Add</button>
+          <input
+            type="text"
+            id="task-input"
+            placeholder="Write task name..."
+            required
+          />
+          <button type="submit">New task</button>
         </form>
       </div>
 
       <div class="tasks">
         <ul id="task-list">
           <li class="task-item">
-            <span>Task Name</span>
+            <span>Task name</span>
             <div class="actions">
-              <button class="btn-check" type="button"></button>
+              <button class="btn-check" type="button">
+                <img src="img/check.svg" alt="check" />
+              </button>
             </div>
           </li>
         </ul>
